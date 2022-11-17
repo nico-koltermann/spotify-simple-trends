@@ -1,57 +1,27 @@
-import Cookies from 'universal-cookie';
 import axios from 'axios';
-import qs from 'qs';
-
-import { Favorite } from "../data/favorite"
 
 const BASE_URL = 'https://api.spotify.com/v1';
-const cookies = new Cookies();
 
-const getAuthorizationToken = async (): Promise<void> => {
-  await axios
-    .post(
-      'https://accounts.spotify.com/api/token',
-      qs.stringify({
-        grant_type: 'client_credentials',
-        client_id: process.env.REACT_APP_SPOTIFY_CLIENT_ID,
-        client_secret: process.env.REACT_APP_SPOTIFY_CLIENT_SECRET,
-      }),
-      {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-      },
-    )
-    .then((response) => {
-      cookies.set('auth', response.data.access_token, {
-        maxAge: response.data.expires_in,
-      });
-    });
-};
-
-const getAuth = async (): Promise<string> => {
-  let auth: string = cookies.get('auth');
-  if (auth === undefined) {
-    await getAuthorizationToken();
-    auth = cookies.get('auth');
-  }
-
-  return auth;
-};
-
-export const GetFeaturedPlaylists =
-  async (): Promise<any> => {
-    const auth = await getAuth();
+export const GetTopTracks =
+  async (limit: number, time: string, offset: number): Promise<any> => {
     return axios
-      .get(`${BASE_URL}/browse/featured-playlists`, {
+      .get(`${BASE_URL}/me/top/tracks?time_range=${time}&limit=${limit}&offset=${offset}`, {
         headers: {
-          Authorization: `Bearer ${auth}`,
+          Authorization: `Bearer ${window.localStorage.getItem("token")}`
         },
       })
-      .then((response) => response.data);
+      .then((response) => console.log(response.data));
+  };
+
+export const GetTopArtists =
+  async (limit: number, time: string, offset: number): Promise<any> => {
+    return axios
+      .get(`${BASE_URL}/me/top/artists?time_range=${time}&limit=${limit}&offset=${offset}`, {
+        headers: {
+          Authorization: `Bearer ${window.localStorage.getItem("token")}`
+        },
+      })
+      .then((response) => console.log(response.data));
   };
 
 
-export function getFavorites(): Favorite {
-  return { artist: "test" };
-}

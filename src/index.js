@@ -1,15 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './css/index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+// Modules
+import App from './App';
+import MainPage from './components/main-page';
+
+// Styles
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './css/spotify-colorcode.css';
+import './css/index.css';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
+    <MainPage />
   </React.StrictMode>
 );
 
