@@ -16,16 +16,21 @@ function App() {
 
   useEffect(() => {
       const hash = window.location.hash
-      let token = window.localStorage.getItem("token")
+      let token = window.localStorage.getItem("token");
 
       if (!token && hash) {
-          token = hash.substring(1).split("&").find(elem => elem.startsWith("access_token")).split("=")[1]
+            let el = hash.substring(1).split("&").find(elem => elem.startsWith("access_token"));
+            if ( el !== undefined) {
+                token = el.split("=")[1] || "";
+            } else {
+                token = "";
+            }
 
           window.location.hash = ""
           window.localStorage.setItem("token", token)
       }
 
-      setToken(token)
+      setToken("" + token)
 
   }, [])
 
