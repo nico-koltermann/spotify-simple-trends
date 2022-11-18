@@ -23,7 +23,13 @@ export class FavoriteTracks extends Component<ArtistProp, {}> {
               {this.props.tracks.map((track: Tracks) => (
                 <ListGroup.Item className="d-flex justify-content-between">
                   <div>
-                    {track.name} 
+                    <img 
+                      src={track.coverUrl} 
+                      alt="new"
+                      />
+                    <div>
+                      {track.name} 
+                    </div>
                   </div>
                   <div>
                     {track.artist}

@@ -4,7 +4,7 @@ import reportWebVitals from './reportWebVitals';
 
 // Modules
 import App from './app';
-import { FavoritePage } from '../pages/favorite-page';
+import { FavoritePage } from './pages/favorite-page';
 
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css';

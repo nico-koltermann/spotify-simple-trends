@@ -32,6 +32,7 @@ export function transformTracks(dto: any) {
         var newTrack =  new Tracks();        
         newTrack.name = x.name;
         newTrack.artist = x.album.artists[0].name;
+        newTrack.coverUrl = x.album.images[1].url;
         result.push(newTrack);
     });
 
