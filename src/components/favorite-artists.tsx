@@ -1,18 +1,33 @@
+import React from 'react';
+
+// Bootstrap
 import Button from 'react-bootstrap/Button';
-import { GetTopTracks, GetTopArtists } from '../api/favorite-api'
+import ListGroup from 'react-bootstrap/ListGroup';
 
-const backendCall = () => {
-  GetTopTracks(1, "long_term", 0);
-  GetTopArtists(1, "long_term", 0);
+// Data
+import { Artists } from '../data/artists';
+
+interface ArtistProp {
+  artists: Array<Artists>;
 }
 
-function FavoriteArtists() {
-  return (
-    <div>
-      <Button variant="primary" className="btn-primary" onClick={backendCall}>Primary</Button>{' '}
-      <Button variant="outline-primary">Primary</Button>{' '}
-    </div>
-  );
-}
+export class FavoriteArtists extends React.Component<ArtistProp, {}> {
+  
+  constructor(props: ArtistProp) {
+    super(props);
+  }
 
-export default FavoriteArtists;
+  render() {
+    return (
+      <div>
+        <>
+          <ListGroup key={"artistsList"} horizontal={"artistsList"} className="artists-list">
+              {this.props.artists.map((artist: Artists) => (
+                <ListGroup.Item>{artist.name}</ListGroup.Item>
+              ))}
+          </ListGroup>
+        </>
+      </div>
+  )};
+
+}

@@ -1,3 +1,4 @@
 {
-    "editor.tabSize": 2
+    "tab_size": 2,
+    "indent_size": 2,
 }

@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
+import { GetProfile } from './api/profile-api';
+
 import './css/App.css'
 
 /**
@@ -17,17 +19,27 @@ function App() {
   useEffect(() => {
       const hash = window.location.hash
       let token = window.localStorage.getItem("token");
+      
+      async function check() {
+        return await GetProfile()
+      };
+
+      if (token) {
+        if (check() === null ) {
+          logout();
+        }
+      }
 
       if (!token && hash) {
-            let el = hash.substring(1).split("&").find(elem => elem.startsWith("access_token"));
-            if ( el !== undefined) {
-                token = el.split("=")[1] || "";
-            } else {
-                token = "";
-            }
+				let el = hash.substring(1).split("&").find(elem => elem.startsWith("access_token"));
+				if ( el !== undefined) {
+						token = el.split("=")[1] || "";
+				} else {
+						token = "";
+      }
 
-          window.location.hash = ""
-          window.localStorage.setItem("token", token)
+				window.location.hash = ""
+				window.localStorage.setItem("token", token)
       }
 
       setToken("" + token)
@@ -42,15 +54,15 @@ function App() {
   const scope = 'user-read-playback-position user-top-read user-read-recently-played';
 
   return (
-          <header className="App-header d-flex flex-row justify-content-around">
-              <h1>Spotify-Trends</h1>
-              {!token ?
-                  <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${scope}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login
-                      to Spotify</a>
-                  : <div>
-                        <Button className="spotify-button" onClick={logout}>Logout</Button>
-                    </div>}
-          </header>
+			<header className="App-header d-flex flex-row justify-content-around">
+					<h1>Spotify-Trends</h1>
+					{!token ?
+							<a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${scope}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login
+									to Spotify</a>
+							: <div>
+										<Button className="spotify-button" onClick={logout}>Logout</Button>
+								</div>}
+			</header>
   );
 }
 

@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 
 // Modules
-import App from './App';
-import MainPage from './components/main-page';
+import App from './app';
+import { FavoritePage } from './pages/favorite-page';
 
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,7 +17,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <App />
-    <MainPage />
+    <FavoritePage />
   </React.StrictMode>
 );
 

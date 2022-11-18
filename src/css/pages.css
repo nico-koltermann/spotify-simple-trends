@@ -1,0 +1,22 @@
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++             Fave Page        +++++++++++++++++++ */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.fav-page-layout {
+    height: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.half-page {
+    width: 50%;
+    min-height: 100%;
+    padding: 1rem;
+}
+
+.button-select {
+    background-color: var(--spotify-green);
+    border-radius: 10px;
+}
