@@ -1,12 +1,17 @@
 # Spotify Trends Viewer - React
 
-This is a test project.
+This is a test project for playing around with react and the spotify-API.
 
 It contains a react-webapp, which allows to analyze the previous data of the given Spotify account.
 
 This app works with the official [Spotify API](https://developer.spotify.com/documentation/web-api/reference/#/).
 
 To run this project, you have to put the credentials into the ```.env``` file. The token can be accessed at the [Spotify delevoper page](https://developer.spotify.com/dashboard/applications) ad the dashboard, if you have an account.
+
+
+### First Version __---WIP---__
+
+![](./docs/images/dashboard.png)
 
 ## Available Scripts
 
@@ -26,7 +31,5 @@ Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
