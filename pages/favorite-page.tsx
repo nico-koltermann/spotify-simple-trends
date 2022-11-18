@@ -1,17 +1,17 @@
 import React from 'react';
 
-import { FavoriteArtists }  from '../components/favorite-artists';
-import { FavoriteTracks }  from '../components/favorite-tracks';
+import { FavoriteArtists }  from '../src/components/favorite-artists';
+import { FavoriteTracks }  from '../src/components/favorite-tracks';
 
-import { GetTopArtists, GetTopTracks } from '../api/favorite-api';
+import { GetTopArtists, GetTopTracks } from '../src/api/favorite-api';
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 
 import '../css/pages.css';
-import { Artists } from '../data/artists';
-import { Tracks } from '../data/tracks';
+import { Artists } from '../src/data/artists';
+import { Tracks } from '../src/data/tracks';
 import { Col } from 'react-bootstrap';
 
 
