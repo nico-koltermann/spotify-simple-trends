@@ -4,20 +4,25 @@ import reportWebVitals from './reportWebVitals';
 
 // Modules
 import App from './app';
-import { FavoritePage } from './pages/favorite-page';
+import { PageContent } from './pages/page-content';
 
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/spotify-colorcode.css';
 import './css/index.css';
 
+import { BrowserRouter } from 'react-router-dom';
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
+    <BrowserRouter>
     <App />
-    <FavoritePage />
+    <PageContent />
+    </BrowserRouter>
   </React.StrictMode>
 );
 

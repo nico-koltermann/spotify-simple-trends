@@ -1,29 +1,32 @@
 import React from 'react';
 
 // Bootstrap
-import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 // Data
 import { Artists } from '../data/artists';
 
-interface ArtistProp {
-  artists: Array<Artists>;
-}
-
-export class FavoriteArtists extends React.Component<ArtistProp, {}> {
+export class FavoriteArtists extends React.Component<{ artists: Array<Artists> }, {}> {
   
-  constructor(props: ArtistProp) {
-    super(props);
-  }
-
   render() {
     return (
       <div>
         <>
           <ListGroup key={"artistsList"} horizontal={"artistsList"} className="artists-list">
               {this.props.artists.map((artist: Artists) => (
-                <ListGroup.Item>{artist.name}</ListGroup.Item>
+                <ListGroup.Item>
+                  <div className="d-flex flex-row align-items-center">
+                    <img 
+                      className='m-1 cover-image'
+                      src={artist.bandUrl} 
+                      width="40" height="40"
+                      alt="new"
+                    />
+                    <div className="ml-5">
+                        {artist.name}
+                    </div>
+                  </div>
+                </ListGroup.Item>
               ))}
           </ListGroup>
         </>

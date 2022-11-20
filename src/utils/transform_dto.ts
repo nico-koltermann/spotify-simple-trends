@@ -1,4 +1,3 @@
-import { GetTopArtists } from '../api/favorite-api';
 import { Artists } from '../data/artists';
 import { Tracks } from '../data/tracks';
 
@@ -13,6 +12,7 @@ export function transformArtists(dto: any) {
     dto.items.forEach( (x: any) => {
         var newArtist =  new Artists();        
         newArtist.genres = x.genres;
+        newArtist.bandUrl =  x.images[1].url;
         newArtist.name = x.name;
         result.push(newArtist);
     });
@@ -21,9 +21,11 @@ export function transformArtists(dto: any) {
 }
 
 /**
- * Transform backend objedct into usable without
+ * Transform backend object into usable datatype without
  * unncessacary infomation
- * @param dto Backend data -> lock into example of api in mocks/ folder 
+ * 
+ * @param dto Backend data -> lock into example of api 
+ * result in mocks/ folder 
  */
 export function transformTracks(dto: any) {
     let result: Tracks[] = [];

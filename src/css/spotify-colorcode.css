@@ -6,6 +6,13 @@
   --spotify-black: #191414;
 }
 
+.spotify-color {
+  color: var(--spotify-green);
+}
+.spotify-color:hover {
+  color: var(--spotify-green-hover);
+}
+
 .spotify-button {
   background-color: var(--spotify-green);
   border-color: var(--spotify-green);

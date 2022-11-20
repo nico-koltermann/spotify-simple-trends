@@ -5,16 +5,8 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 import { Tracks } from '../data/tracks';
 
-interface ArtistProp {
-  tracks: Array<Tracks>;
-}
-
-export class FavoriteTracks extends Component<ArtistProp, {}> {
+export class FavoriteTracks extends Component< { tracks: Array<Tracks> }, {}> {
   
-  constructor(props: ArtistProp) {
-    super(props);
-  }
-
   render() {
     return (
       <div>
@@ -22,16 +14,18 @@ export class FavoriteTracks extends Component<ArtistProp, {}> {
           <ListGroup key={"artistsList"} horizontal={"artistsList"} className="artists-list">
               {this.props.tracks.map((track: Tracks) => (
                 <ListGroup.Item className="d-flex justify-content-between">
-                  <div>
+                  <div className="d-flex flex-row align-items-center">
                     <img 
+                      className='m-1 cover-image'
                       src={track.coverUrl} 
+                      width="40" height="40"
                       alt="new"
                       />
-                    <div>
+                    <div className="ml-5">
                       {track.name} 
                     </div>
                   </div>
-                  <div>
+                  <div className="d-flex flex-row align-items-center">
                     {track.artist}
                   </div>
                 </ListGroup.Item>

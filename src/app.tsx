@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
 import { GetProfile } from './api/profile-api';
-
+import { Link } from 'react-router-dom';
 import './css/App.css'
 
 /**
@@ -53,15 +53,35 @@ function App() {
 
   const scope = 'user-read-playback-position user-top-read user-read-recently-played';
 
+
+  const divStyle = {
+    "width": "33%",
+    "display": "flex",
+  };
+
   return (
 			<header className="App-header d-flex flex-row justify-content-around">
-					<h1>Spotify-Trends</h1>
+
+          <div style={divStyle} className="justify-content-start">
+            <Link to="/analytics" className="m-4 spotify-color" >Analytics</Link>
+            <Link to="/trends" className="m-4 spotify-color" >Trends</Link>
+          </div>
+
+					<h1 style={divStyle} className="justify-content-center">Spotify-Trends</h1>
+
+          <div style={divStyle} className="justify-content-end p-4">
 					{!token ?
-							<a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${scope}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login
-									to Spotify</a>
+              <div>
+                <Button type="button" className="spotify-button" >
+                  <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${scope}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>
+                    Login
+                  </a>
+                </Button>
+              </div>
 							: <div>
 										<Button className="spotify-button" onClick={logout}>Logout</Button>
 								</div>}
+            </div>
 			</header>
   );
 }
