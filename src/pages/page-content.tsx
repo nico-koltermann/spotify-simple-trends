@@ -10,9 +10,6 @@ import '../css/pages.css';
 import { Artists } from '../data/artists';
 import { Tracks } from '../data/tracks';
 
-import { Routes, Route } from 'react-router-dom';
-import { AnalyticsPage } from './analytics-page';
-
 interface FavesState {
   artists: Array<Artists>;
   tracks: Array<Tracks>;
@@ -100,14 +97,7 @@ export class PageContent extends React.Component<{}, FavesState> {
           </div>
         </div>
 
-        <Routes>
-          <Route path='/trends' element={
-            <FavoritePage tracks={this.state.tracks} artists={this.state.artists} />
-          }></Route>
-          <Route path='/analytics' element={
-            <AnalyticsPage tracks={this.state.tracks} artists={this.state.artists} />
-          }></Route>
-        </Routes>
+        <FavoritePage tracks={this.state.tracks} artists={this.state.artists} />
 
     </div>
   )}
