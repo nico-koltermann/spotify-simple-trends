@@ -12,8 +12,6 @@ import './css/spotify-colorcode.css';
 import './css/index.css';
 
 import { BrowserRouter } from 'react-router-dom';
-import { Routes, Route } from 'react-router-dom';
-import { DatabasePage } from './pages/database-page';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -23,14 +21,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
     <App />
-    <Routes>
-        <Route path='' element={
-          <PageContent />
-        }></Route>
-          <Route path='/database' element={
-            <DatabasePage />
-        }></Route>
-        </Routes>
+    <PageContent />
     </BrowserRouter>
   </React.StrictMode>
 );

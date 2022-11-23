@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
 import { GetProfile } from './api/profile-api';
-import { Link } from 'react-router-dom';
 import './css/App.css'
 
 /**
@@ -61,12 +60,6 @@ function App() {
 
   return (
 			<header className="App-header d-flex flex-row justify-content-around">
-
-          <div style={divStyle} className="justify-content-start">
-            <Link to="/analytics" className="m-4 spotify-color" >Analytics</Link>
-            <Link to="/trends" className="m-4 spotify-color" >Trends</Link>
-            <Link to="/database" className="m-4 spotify-color" >Database</Link>
-          </div>
 
 					<h1 style={divStyle} className="justify-content-center">Spotify-Trends</h1>
 
