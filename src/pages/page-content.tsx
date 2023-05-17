@@ -84,16 +84,16 @@ export class PageContent extends React.Component<{}, FavesState> {
           <div className={`p-1 ${this.state.options.timespan === 'short_term' ? "button-select" : ""}`}>
             <Button variant="outline-primary" className='spotify-button-outlier'
               onClick={this.short_term}>
-                short_term
+                Last Weeks
             </Button>{' '}
           </div>
           <div className={`p-1 ${this.state.options.timespan === 'medium_term' ? "button-select" : ""}`}>
             <Button variant="outline-primary" className='spotify-button-outlier' onClick={this.medium_term}>
-                medium_term</Button>{' '}
+                Last Months</Button>{' '}
           </div>
           <div className={`p-1 ${this.state.options.timespan === 'long_term' ? "button-select" : ""}`}>
           <Button variant="outline-primary" className='spotify-button-outlier' onClick={this.long_term}>
-              long_term</Button>{' '}
+              Last Year</Button>{' '}
           </div>
         </div>
 

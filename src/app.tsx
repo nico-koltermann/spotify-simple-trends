@@ -52,7 +52,6 @@ function App() {
 
   const scope = 'user-read-playback-position user-top-read user-read-recently-played';
 
-
   const divStyle = {
     "width": "33%",
     "display": "flex",
@@ -64,7 +63,6 @@ function App() {
 					<h1 style={divStyle} className="justify-content-center">Spotify-Trends</h1>
 
           <div style={divStyle} className="justify-content-end p-4">
-					{!token ?
               <div>
                 <Button type="button" className="spotify-button" >
                   <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${scope}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>
@@ -72,9 +70,6 @@ function App() {
                   </a>
                 </Button>
               </div>
-							: <div>
-										<Button className="spotify-button" onClick={logout}>Logout</Button>
-								</div>}
             </div>
 			</header>
   );

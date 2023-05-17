@@ -10,6 +10,12 @@
     justify-content: space-between;
 }
 
+.mobile-tabs {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .half-page {
     width: 50%;
     min-height: 100%;
